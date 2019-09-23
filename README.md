@@ -7,4 +7,4 @@ Simplemente debes acceder a https://project-asteroids.000webhostapp.com/, crear 
 <h3>Modo administrador</h3>
 El juego posee una zona de administración (backend) donde se podrá editar registros de puntuaciones y usuarios, añadir nuevas puntuaciones y borrar registros de puntuaciones y usuarios. Se accederá a ella ingresando el usuario <b>DAW</b>, la contraseña <b>Project_DAW</b> y seleccionando la opción de administrador.
 <br>
-https://github.com/CristianCemeo/Project-Asteroids/master/img/Project-Asteroids.jpg
+<img src="https://github.com/CristianCemeo/Project-Asteroids/blob/master/img/Project-Asteroids.jpg">
