@@ -1,0 +1,222 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../img/background_wallpaper.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+}
+
+.input-field input[type=text]:focus, .input-field input[type=password]:focus {
+    border-bottom: 1px solid #D71921 !important;
+    box-shadow: 0 1px 0 0 #D71921 !important;
+}
+
+[type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:before, [type="radio"].with-gap:checked + span:after {
+    border: 2px solid #D71921;
+}
+[type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:after {
+    background-color: #D71921;
+}
+
+.imgLogo{
+    position: absolute;
+    left: 50%;
+    top: 7%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 40vh;
+}
+
+.menu{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    background: linear-gradient(rgba(63, 63, 63, .8), rgba(63, 63, 63, .8));
+    margin-top: 20px;
+}
+
+.menu.juego{
+    top: 150px;
+    transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    width: 600px;
+    margin-top: -15px;
+}
+
+.menu.admin{
+    top: 150px;
+    transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    width: 600px;
+}
+
+canvas{
+    margin-left: 90px;
+}
+
+#mensajeError, #mensajeError2 {
+    color: rgb(255, 50, 50) !important;
+    text-align: center !important;
+}
+
+#mensajeAceptar, #mensajeBorrado, #mensajeEditado{
+    color: rgb(31, 187, 0) !important;
+    text-align: center !important;
+}
+
+.tabs{
+    background-color: transparent !important;
+}
+
+.tabs .tab a{
+    color: #D71921;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.tabs .tab a:hover {
+    background-color: red !important;
+    color:white;
+}
+
+.tabs .tab a.active {
+    background-color: #D71921 !important;
+    color:white;
+}
+
+.tabs .indicator {
+    background-color:yellow;
+}
+
+ .select-wrapper input.select-dropdown{
+    color: rgb(199, 199, 199);
+}
+
+.datepicker-modal{
+    width: auto;
+}
+
+/*.timepicker-analog-display{
+    background-color: rgb(50, 50, 50);
+}*/
+
+.datepicker-date-display{
+    background-color: #D71921;
+}
+
+.datepicker-cancel, .datepicker-done{
+    color: white;
+}
+
+.month-prev svg, .month-next svg{
+    fill: white;
+}
+
+.month-prev:focus, .month-next:focus{
+    background-color: #D71921 !important;
+}
+
+.datepicker-controls .select-month input, .datepicker-controls .select-year input{
+    color: white;
+}
+
+.datepicker-table abbr {
+    color: white;
+}
+
+.datepicker-calendar-container{
+    background-color: rgb(50, 50, 50);
+}
+
+.datepicker-table-wrapper .is-selected{
+    background-color: #D71921 !important;
+}
+
+.datepicker-table-wrapper .is-today{
+    color: red !important;
+}
+
+.datepicker-table-wrapper .is-today.is-selected > button{
+    color: white;
+}
+
+/* .timepicker-canvas line{
+    stroke: #D71921 !important;
+}
+
+.timepicker-canvas-bg, .timepicker-canvas-bearing{
+    fill: #D71921 !important;
+}
+
+.timepicker-tick.active, .timepicker-tick:hover{
+    background-color: rgba(255, 50, 50, 0.575) !important;
+}
+
+.timepicker-tick{
+    color: white;
+}
+
+.timepicker-plate{
+    background-color: rgb(40, 40, 40);
+    border-radius: 50%;
+}*/
+
+.dropdown-content{
+    background-color: rgb(50, 50, 50);
+}
+
+.dropdown-content > li > span{
+    color: white !important;
+}
+
+.page-item .page-link{
+    color: white !important;
+}
+
+.modal{
+    background-color: rgb(50, 50, 50) !important;
+    width: auto;
+    max-height: none;
+}
+
+.modal .modal-content{
+    padding-bottom: 0;
+}
+
+.modal .modal-content > h4{
+    margin-bottom: 0;
+}
+
+.modal .modal-content #modal_content{
+    margin-bottom: 0 !important;
+}
+
+table .btn.editar{
+    padding: 0 16px 0 0 !important;
+    background-color: rgb(219, 219, 0) !important;
+}
+table .btn.borrar{
+    padding: 0 16px 0 0 !important;
+    background-color: #D71921 !important;
+}
+
+#editar table tr > td:nth-child(2) > a{
+    color: rgb(219, 219, 0) !important;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+#borrar table tr > td:nth-child(2) > a{
+    color: #D71921 !important;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.loading{
+    margin-left: 44%;
+}
