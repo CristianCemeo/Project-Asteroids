@@ -43,7 +43,7 @@ if (isset($_REQUEST["enviar"])){
             $mensajeError = $validarUsuario;
         }
     }else{
-        $mensajeError = "Error con el captcha. Si es humano, intentelo de nuevo."
+        $mensajeError = "Error con el captcha. Si es humano, intentelo de nuevo.";
     }    
 }
 
