@@ -11,29 +11,40 @@ if (isset($_REQUEST["enviar"])){
     $pass1 = $_REQUEST["password"];
     $pass2 = $_REQUEST["password2"];
 
-    // Comprobamos el nombre de usuario introducido
-    $validarUsuario = comprobarUsuario($usuario);
-    if ($validarUsuario == NULL){
-        // Comprobamos la contraseña introducida
-        $validarPass = comprobarClave($pass1);
-        if ($validarPass == NULL){
-            // Comprobamos que las dos contraseñas concuerdan
-            if ($pass1 == $pass2){
-                $mensaje = registrarse($conexion, $usuario, $pass1);
-                if ($mensaje=="Usuario registrado correctamente."){
-                    $mensajeRegistrado = $mensaje;
+    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify'; 
+    $recaptcha_secret = 'CLAVE_PRIVADA'; 
+    $recaptcha_response = $_POST['recaptcha_response']; 
+    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response); 
+    $recaptcha = json_decode($recaptcha); 
+
+	// Comprobamos que no es un robot
+    if($recaptcha->score >= 0.8){
+        // Comprobamos el nombre de usuario introducido
+        $validarUsuario = comprobarUsuario($usuario);
+        if ($validarUsuario == NULL){
+            // Comprobamos la contraseña introducida
+            $validarPass = comprobarClave($pass1);
+            if ($validarPass == NULL){
+                // Comprobamos que las dos contraseñas concuerdan
+                if ($pass1 == $pass2){
+                    $mensaje = registrarse($conexion, $usuario, $pass1);
+                    if ($mensaje=="Usuario registrado correctamente."){
+                        $mensajeRegistrado = $mensaje;
+                    } else {
+                        $mensajeError = $mensaje;
+                    }
                 } else {
-                    $mensajeError = $mensaje;
+                    $mensajeError = "¡La contraseña no coincide!";
                 }
             } else {
-                $mensajeError = "¡La contraseña no coincide!";
+                $mensajeError = $validarPass;
             }
         } else {
-            $mensajeError = $validarPass;
+            $mensajeError = $validarUsuario;
         }
-    } else {
-        $mensajeError = $validarUsuario;
-    }
+    }else{
+        $mensajeError = "Error con el captcha. Si es humano, intentelo de nuevo."
+    }    
 }
 
 ?>
@@ -50,6 +61,15 @@ if (isset($_REQUEST["enviar"])){
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/materialize.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?render=CLAVE_PUBLICA'></script>
+    <script>
+        grecaptcha.ready(function() {
+        grecaptcha.execute('CLAVE_PUBLICA', {action: 'Project Asteroids'})
+        .then(function(token) {
+        var recaptchaResponse = document.getElementById('recaptchaResponse');
+        recaptchaResponse.value = token;
+        });});
+    </script>
 </head>
 <body>
     <?php logo() ?>
@@ -69,6 +89,8 @@ if (isset($_REQUEST["enviar"])){
                             <input placeholder="Repita contraseña" required id="password2" name="password2" type="password" class="validate white-text">
                     </div>
             </div>
+
+            <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
 
             <p id="mensajeAceptar"><?php echo $mensajeRegistrado ?></p>
             <p id="mensajeError"><?php echo $mensajeError ?></p>
